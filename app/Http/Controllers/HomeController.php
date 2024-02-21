@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function index(Request $request) {
- 
-        $method=strtolower($request->method());
-        if( $method==="post") {
-            dump($request->all());
-        }
+        
+        $post=Post::first()->pluck('title','content')->first();
 
-        dump($request->route()->named('home'));
+        dump($post);
+
+         
+
         return view('home.home');
     }
 }

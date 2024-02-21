@@ -19,7 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::match(['get','post'],'/home',[HomeController::class,'index'])->name('home');
+Route::get('/home',[HomeController::class,'index'])->name('home');
 
 
 
