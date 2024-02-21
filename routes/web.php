@@ -21,6 +21,8 @@ Route::get('/', function () {
 
 Route::get('/home',[HomeController::class,'index'])->name('home');
 
+Route::fallback([HomeController::class,'error'])->name('errorpage');
+
 
 
 /* breeze routes */

@@ -12,6 +12,27 @@
 
 namespace App\Models{
 /**
+ * App\Models\Network
+ *
+ * @property int $id
+ * @property string $name
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Sender|null $sender
+ * @method static \Database\Factories\NetworkFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder|Network newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Network newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Network query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Network whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Network whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Network whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Network whereUpdatedAt($value)
+ */
+	class Network extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\Post
  *
  * @property int $id
@@ -19,7 +40,9 @@ namespace App\Models{
  * @property string $content
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|Post active()
  * @method static \Database\Factories\PostFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder|Post name()
  * @method static \Illuminate\Database\Eloquent\Builder|Post newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Post newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Post query()
@@ -30,6 +53,33 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereUpdatedAt($value)
  */
 	class Post extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\Sender
+ *
+ * @property int $id
+ * @property string $name
+ * @property string $email
+ * @property int $status
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property int|null $network_id
+ * @property-read \App\Models\Network|null $network
+ * @method static \Database\Factories\SenderFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder|Sender newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Sender newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Sender query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Sender whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Sender whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Sender whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Sender whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Sender whereNetworkId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Sender whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Sender whereUpdatedAt($value)
+ */
+	class Sender extends \Eloquent {}
 }
 
 namespace App\Models{
