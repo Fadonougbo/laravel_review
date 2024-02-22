@@ -9,7 +9,7 @@ class Network extends Model
 {
     use HasFactory;
 
-    public function sender() {
-        return $this->hasOne(Sender::class);
+    public function senders() {
+        return $this->hasMany(Sender::class);
     }
 }

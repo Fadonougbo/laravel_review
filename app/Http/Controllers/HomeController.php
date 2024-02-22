@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Network;
 use App\Models\Post;
 use App\Models\Sender;
 use Illuminate\Http\Request;
@@ -14,11 +15,18 @@ class HomeController extends Controller
         
        
 
-        $senders=Sender::limit(15)->get();
+        //$senders=Sender::limit(15)->get();
+        $networks=Network::with('senders')->get();
 
-        foreach($senders as $sender) {
-            dump($sender->network?->name);
+
+        foreach($networks as $network) {
+
+            dump($network->senders);
         }
+
+        /* foreach($senders as $sender) {
+            dump($sender->network?->name);
+        } */
 
         return view('home.home');
     }
