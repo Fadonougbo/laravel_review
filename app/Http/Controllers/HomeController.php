@@ -2,33 +2,37 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\UserMail;
 use App\Models\Network;
 use App\Models\Post;
 use App\Models\Sender;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {
-    public function index(Request $request) {
+    public function index() {
         
-       
-
-        //$senders=Sender::limit(15)->get();
-        $networks=Network::with('senders')->get();
-
-
-        foreach($networks as $network) {
-
-            dump($network->senders);
-        }
-
-        /* foreach($senders as $sender) {
-            dump($sender->network?->name);
-        } */
-
         return view('home.home');
+    }
+
+    public function store(Request $request) {
+
+       /*  return redirect()->route('home.store')
+        ->with('','')
+        ->withInput([
+            'name'=>'okokdoede'
+        ]); */
+
+        Mail::send(new UserMail());
+        //return (new UserMail())->render();
+        return back();
+        
+        
+
     }
 
     public function error() {
