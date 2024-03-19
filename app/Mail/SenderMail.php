@@ -10,14 +10,14 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class UserMail extends Mailable
+class SenderMail extends Mailable
 {
     use Queueable, SerializesModels;
 
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct(public string $username)
     {
         //
     }
@@ -28,9 +28,11 @@ class UserMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'User Mail',
-            from:'doe@doe.com',
-            to:['user1@user.com']
+            subject: 'Sender Mail',
+            cc:[
+                'doe@doe.com'
+            ]
+            
         );
     }
 
@@ -40,7 +42,11 @@ class UserMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            markdown: 'mail.user-mail'
+            view: 'mail.sendermail',
+            text:"mail.sendmailtext",
+            with:[
+                'age'=>30
+            ]
         );
     }
 
@@ -52,7 +58,6 @@ class UserMail extends Mailable
     public function attachments(): array
     {
         return [
-            Attachment::fromStorageDisk('public','pic1.jpg')
         ];
     }
 }

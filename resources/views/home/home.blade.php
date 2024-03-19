@@ -4,21 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    @vite(['/resources/css/app.css'])
+    @vite(['/resources/css/app.css','/resources/js/index.ts'])
 </head>
 <body> 
-    <!-- <div>
-        <img src="{{asset('storage/pic2.jpg')}}" alt="">
+   <!--  <div>
+        <img src="{{Vite::asset('resources/images/pic1.jpg')}}" alt="">
     </div> -->
     
     <div>
         <form action="" method="POST" enctype="multipart/form-data" >
             @csrf
 
+            @dump(asset('pic2.jpg'),Vite::asset('resources/images/pic1.jpg'))
             <div>
                 <label for="">Name</label>
-                <input type="text" name="name" id="">
+                <input type="text" name="name" value="{{old('name')}}">
             </div>
+            @error('name')
+                <p>{{$message}}</p>
+            @enderror
             <div>
                 <label for="">picture</label>
                 <input type="file" name="picture" id="">

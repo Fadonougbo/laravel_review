@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\UserMail;
+use App\Mail\SenderMail;
 use App\Models\Network;
 use App\Models\Post;
 use App\Models\Sender;
@@ -21,15 +21,22 @@ class HomeController extends Controller
 
     public function store(Request $request) {
 
-       /*  return redirect()->route('home.store')
-        ->with('','')
+        /* return back()
+        ->with('essai','essai value')
+        ->withErrors([
+            'name'=>'invalide'
+        ])
         ->withInput([
             'name'=>'okokdoede'
-        ]); */
+        ])
+        
+        ; */
 
-        Mail::send(new UserMail());
-        //return (new UserMail())->render();
+        Mail::send(new SenderMail('doe'));
+
         return back();
+        //return (new UserMail())->render();
+        //return back();
         
         
 
