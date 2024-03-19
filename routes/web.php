@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\tutoAuth\UserAuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,7 +20,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home',[HomeController::class,'index'])->name('home');
+Route::prefix('auth')->controller(UserAuthController::class)->name('user.auth.')->group(function() {
+
+    Route::get('/login','login')->name('login');
+
+    Route::post('/login','doLogin')->name('doLogin');
+
+    Route::get('/create','create')->name('create');
+
+    Route::post('/create','doCreate')->name('doCreate');
+
+    Route::post('/logout','logout')->name('logout');
+
+    Route::post('/logout/all','logoutOnAll')->name('logoutOnAll');
+
+});
+
+Route::get('/home',[HomeController::class,'index'])->middleware(['auth'])->name('home');
 
 Route::post('/home',[HomeController::class,'store'])->name('home.store');
 

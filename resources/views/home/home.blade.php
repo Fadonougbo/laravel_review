@@ -12,6 +12,14 @@
     </div> -->
     
     <div>
+        @auth
+            <form action="{{route('user.auth.logout')}}" method="POST">
+            @csrf
+                <button>logout</button>
+            </form>
+
+        @endauth
+        
         <form action="" method="POST" enctype="multipart/form-data" >
             @csrf
 

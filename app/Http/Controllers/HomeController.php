@@ -2,15 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\SenderMail;
-use App\Models\Network;
-use App\Models\Post;
-use App\Models\Sender;
+
 use Illuminate\Http\Request;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Storage;
+
 
 class HomeController extends Controller
 {
@@ -32,9 +26,9 @@ class HomeController extends Controller
         
         ; */
 
-        Mail::send(new SenderMail('doe'));
+       /*  Mail::send(new SenderMail('doe'));
 
-        return back();
+        return back(); */
         //return (new UserMail())->render();
         //return back();
         
