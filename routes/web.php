@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\tutoAuth\UserAuthController;
 use Illuminate\Support\Facades\Route;
@@ -38,7 +39,11 @@ Route::prefix('auth')->controller(UserAuthController::class)->name('user.auth.')
 
 Route::get('/home',[HomeController::class,'index'])->middleware(['auth'])->name('home');
 
+Route::get('/secret',[HomeController::class,'secret'])->middleware(['auth'])->name('secret');
+
 Route::post('/home',[HomeController::class,'store'])->name('home.store');
+
+Route::get('/home2',[PostController::class,'index']);
 
 
 Route::fallback([HomeController::class,'error'])->name('errorpage');

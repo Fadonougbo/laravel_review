@@ -19,11 +19,11 @@
             </form>
 
         @endauth
-        
+        <a href="{{route('secret')}}">secret page</a>
         <form action="" method="POST" enctype="multipart/form-data" >
             @csrf
 
-            @dump(asset('pic2.jpg'),Vite::asset('resources/images/pic1.jpg'))
+            
             <div>
                 <label for="">Name</label>
                 <input type="text" name="name" value="{{old('name')}}">

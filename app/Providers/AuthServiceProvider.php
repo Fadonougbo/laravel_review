@@ -3,7 +3,16 @@
 namespace App\Providers;
 
 // use Illuminate\Support\Facades\Gate;
+
+use App\Models\Home;
+use App\Models\Network;
+use App\Models\Post;
+use App\Models\User;
+use App\Policies\HomePolicy;
+use App\Policies\PostPolicy;
+use App\Policies\UserPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Gate;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -13,7 +22,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array<class-string, class-string>
      */
     protected $policies = [
-        //
+       
     ];
 
     /**
@@ -21,6 +30,11 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Gate::define('see-secret-page',function(User $user,string $pays) {
+            dump($pays);
+            return true;
+
+        });
+        
     }
 }
