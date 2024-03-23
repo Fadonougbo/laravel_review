@@ -38,7 +38,7 @@ Route::prefix('auth')->controller(UserAuthController::class)->name('user.auth.')
 
 });
 
-Route::get('/home',[HomeController::class,'index'])->middleware(['auth'])->name('home');
+Route::get('/home',[HomeController::class,'index'])->middleware(['auth','verified'])->name('home');
 
 Route::get('/secret',[HomeController::class,'secret'])->middleware(['auth'])->name('secret');
 

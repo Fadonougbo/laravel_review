@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
@@ -22,8 +23,8 @@ class HomeController extends Controller
 
     public function index(Request $request) {
         
-        $request->session()->save();
-
+       //Session::flash('message2','okok');
+        dump(Session::get('message'));
     //$response=Auth::user()->can('viewAny2',Home::class);
 
     //$response=$this->authorize('viewAny2',Home::class);
