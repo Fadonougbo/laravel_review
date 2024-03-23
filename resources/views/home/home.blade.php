@@ -19,6 +19,15 @@
             </form>
 
         @endauth
+
+        @can('viewAny',App\Models\Home::class)
+            <strong>il peut</strong>
+
+        @else
+            <strong>Il ne  peut pas</strong>
+        @endcan
+
+
         <a href="{{route('secret')}}">secret page</a>
         <form action="" method="POST" enctype="multipart/form-data" >
             @csrf

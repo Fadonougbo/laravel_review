@@ -31,8 +31,8 @@ class AuthServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Gate::define('see-secret-page',function(User $user,string $pays) {
-            dump($pays);
-            return true;
+            
+            return false;
 
         });
         

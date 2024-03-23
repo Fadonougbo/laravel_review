@@ -10,7 +10,13 @@ use Illuminate\Support\Facades\Gate;
 class PostController extends Controller
 {
     public function index (Request $request) {
-        dump(Auth::user()->can('viewAny',Post::class));
+        
+        //$response=Auth::user()->can('viewAny',Post::class);
+
+        //$this->authorize('viewAny',Post::class);
+
+        //Gate::authorize('viewAny',Post::class);
+
         return 'indexok';
     }
 }

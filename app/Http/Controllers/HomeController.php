@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Home;
 use App\Models\Network;
 use App\Models\Post;
 use App\Models\User;
@@ -12,22 +13,22 @@ use Illuminate\Support\Facades\Hash;
 
 class HomeController extends Controller
 {
+
+    /* public function __construct() {
+
+        $this->authorize('viewAny2',Home::class);
+    } */
+
+
     public function index(Request $request) {
+        
+        $request->session()->save();
 
-        /* $user=User::find(3);
-       
-        if(Gate::forUser($user)->allows('see-secret-page','benin')) {
-            dump('ok');
-        }else {
-            dump('no');
-        } */
+    //$response=Auth::user()->can('viewAny2',Home::class);
 
-        //dump($request->user()->can('viewAny'));
+    //$response=$this->authorize('viewAny2',Home::class);
 
-        if ($request->user()->can('viewAny')) {
-            abort(403);
-        }
-
+    
         return view('home.home');
     }
 

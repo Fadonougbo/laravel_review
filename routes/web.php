@@ -4,6 +4,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\tutoAuth\UserAuthController;
+use App\Models\Home;
 use Illuminate\Support\Facades\Route;
 
 /*
