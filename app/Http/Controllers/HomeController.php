@@ -3,33 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Models\Home;
-use App\Models\Network;
-use App\Models\Post;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Session;
+
 
 class HomeController extends Controller
 {
 
-    /* public function __construct() {
-
-        $this->authorize('viewAny2',Home::class);
-    } */
-
 
     public function index(Request $request) {
         
-       //Session::flash('message2','okok');
-        dump(Session::get('message'));
-    //$response=Auth::user()->can('viewAny2',Home::class);
+      
+        dump(Auth::user()->can('viewAny',Home::class));
 
-    //$response=$this->authorize('viewAny2',Home::class);
-
-    
         return view('home.home');
     }
 

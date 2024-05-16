@@ -12,29 +12,8 @@
     </div> -->
     
     <div>
-        @auth
-            <form action="{{route('user.auth.logout')}}" method="POST">
-            @csrf
-                <button>logout</button>
-            </form>
 
-        @endauth
-
-        @can('viewAny',App\Models\Home::class)
-            <strong>il peut</strong>
-
-        @else
-            <strong>Il ne  peut pas</strong>
-        @endcan
-
-        @session('info') 
-            <h1>Info</h1>
-        @else  
-            <h1>No info</h1>
-        @endsession
-
-
-        <a href="{{route('secret')}}">secret page</a>
+        <a href="#">secret page</a>
         <form action="" method="POST" enctype="multipart/form-data" >
             @csrf
 

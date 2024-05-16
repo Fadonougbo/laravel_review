@@ -2,21 +2,22 @@
 
 namespace App\Policies;
 
+use App\Models\Home;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
 
 class HomePolicy
 {
+
+
+
     /**
-     * Create a new policy instance.
+     * Determine whether the user can view any models.
      */
-    public function __construct()
+    public function viewAny(): bool
     {
-        
-    }
-
-    public function viewAny2(User $user) {
-
         return true;
     }
+
+    
 }

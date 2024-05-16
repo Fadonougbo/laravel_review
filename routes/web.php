@@ -1,12 +1,10 @@
 <?php
 
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\tutoAuth\UserAuthController;
 use App\Models\Home;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,32 +20,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::prefix('auth')->controller(UserAuthController::class)->name('user.auth.')->group(function() {
 
-    Route::get('/login','login')->name('login');
-
-    Route::post('/login','doLogin')->name('doLogin');
-
-    Route::get('/create','create')->name('create');
-
-    Route::post('/create','doCreate')->name('doCreate');
-
-    Route::post('/logout','logout')->name('logout');
-
-    Route::post('/logout/all','logoutOnAll')->name('logoutOnAll');
-
-});
-
-Route::get('/home',[HomeController::class,'index'])->middleware(['auth','verified'])->name('home');
-
-Route::get('/secret',[HomeController::class,'secret'])->middleware(['auth'])->name('secret');
-
-Route::post('/home',[HomeController::class,'store'])->name('home.store');
-
-Route::get('/home2',[PostController::class,'index']);
-
-
-Route::fallback([HomeController::class,'error'])->name('errorpage');
+Route::get('/home',[HomeController::class,'index'])->can('viewAny',Home::class);
 
 
 

@@ -22,7 +22,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array<class-string, class-string>
      */
     protected $policies = [
-       
+       //Home::class=>HomePolicy::class
     ];
 
     /**
@@ -30,11 +30,11 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Gate::define('see-secret-page',function(User $user,string $pays) {
+        /* Gate::define('see-secret-page',function(User $user,string $pays) {
             
-            return false;
+            return $pays==='doe';
 
-        });
+        }); */
         
     }
 }
