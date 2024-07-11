@@ -26,8 +26,8 @@ class Post extends Model
 
         return Attribute::make(
             get:function(string $value,array $attributes) {
-               
-                return $value;
+            
+                return $value.'222';
             },
             set:function(string $value,array $attributes) {
                 dump($attributes);

@@ -17,7 +17,7 @@
         <form action="" method="POST" enctype="multipart/form-data" >
             @csrf
 
-            
+          
             <div>
                 <label for="">Name</label>
                 <input type="text" name="name" value="{{old('name')}}">

@@ -16,7 +16,7 @@ class HomePolicy
      */
     public function viewAny(): bool
     {
-        return true;
+        return false;
     }
 
     

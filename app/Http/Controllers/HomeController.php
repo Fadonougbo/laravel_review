@@ -3,10 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\Home;
+use App\Models\Network;
+use App\Models\Post;
+use App\Models\Sender;
+use App\Models\User;
+use App\Notifications\TestNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
-
+use Facades\App\Man;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Lottery;
 
 class HomeController extends Controller
 {
@@ -14,8 +23,17 @@ class HomeController extends Controller
 
     public function index(Request $request) {
         
-      
-        dump(Auth::user()->can('viewAny',Home::class));
+        //$url = action([HomeController::class, 'index']);
+        
+        $user=(User::first());
+
+        dump();
+
+        //$user->notify(new TestNotification());
+
+        //Notification::route('mail','doe2@doe.com')->notify(new TestNotification());
+
+        //dump($user->notifications[0]->type);
 
         return view('home.home');
     }

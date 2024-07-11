@@ -1,6 +1,7 @@
 <?php
 
 // @formatter:off
+// phpcs:ignoreFile
 /**
  * A helper file for your Eloquent Models
  * Copy the phpDocs from this file to the correct Model,
@@ -12,13 +13,25 @@
 
 namespace App\Models{
 /**
+ * App\Models\Home
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|Home newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Home newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Home query()
+ */
+	class Home extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\Network
  *
  * @property int $id
  * @property string $name
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \App\Models\Sender|null $sender
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Sender> $senders
+ * @property-read int|null $senders_count
  * @method static \Database\Factories\NetworkFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Network newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Network newQuery()
@@ -111,6 +124,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|User whereRememberToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
  */
-	class User extends \Eloquent {}
+	class User extends \Eloquent implements \Illuminate\Contracts\Auth\MustVerifyEmail {}
 }
 
