@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class TestNotification extends Notification
+class TestNotification extends Notification implements ShouldQueue
 {
     use Queueable;
 
@@ -26,7 +26,7 @@ class TestNotification extends Notification
      */
     public function via(object $notifiable): array
     {
-        return ['mail','database'];
+        return ['mail'];
     }
 
     /**
@@ -35,8 +35,9 @@ class TestNotification extends Notification
     public function toMail(object $notifiable): MailMessage
     {
       
-        
+        sleep(4);
         return (new MailMessage)
+                    ->error()
                     ->line('The introduction to the notification.')
                     ->action('Notification Action', url('/'))
                     ->salutation('salut les gens ')

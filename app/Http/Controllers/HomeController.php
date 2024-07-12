@@ -12,9 +12,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Facades\App\Man;
+use Illuminate\Queue\Jobs\Job;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\Queue;
 use Illuminate\Support\Lottery;
 
 class HomeController extends Controller
@@ -30,8 +32,8 @@ class HomeController extends Controller
         dump();
 
         //$user->notify(new TestNotification());
-
-        //Notification::route('mail','doe2@doe.com')->notify(new TestNotification());
+        dump();
+        Notification::route('mail','doe2@doe.com')->notify(new TestNotification());
 
         //dump($user->notifications[0]->type);
 
