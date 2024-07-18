@@ -29,10 +29,10 @@ class HomeController extends Controller
         
         $user=(User::first());
 
-        dump();
-
+       
+        //echo "salut";
         //$user->notify(new TestNotification());
-        dump();
+        
         Notification::route('mail','doe2@doe.com')->notify(new TestNotification());
 
         //dump($user->notifications[0]->type);

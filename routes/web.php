@@ -23,7 +23,7 @@ Route::get('/', function () {
 
 Route::get('/home',[HomeController::class,'index'])->name('home');
 
-
+//Route::get('/sse',[HomeController::class,'sse'])->name('sse');
 
 /* breeze routes */
 Route::get('/dashboard', function () {
