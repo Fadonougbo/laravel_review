@@ -7,6 +7,10 @@ use Illuminate\Validation\Rule;
 
 class UserAuthRequest extends FormRequest
 {
+
+
+    protected $stopOnFirstFailure = true;
+
     /**
      * Determine if the user is authorized to make this request.
      */
@@ -14,6 +18,8 @@ class UserAuthRequest extends FormRequest
     {
         return true;
     }
+
+    
 
     /**
      * Get the validation rules that apply to the request.

@@ -24,7 +24,7 @@
             @enderror
         </div>
         <div>
-            <label for="password">password</label>
+            <label  for="password">password</label>
             <input type="password" name="password" id="password">
             @error('password')
                 <p>{{$message}}</p>

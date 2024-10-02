@@ -23,6 +23,8 @@ Route::get('/', function () {
 
 Route::get('/home',[HomeController::class,'index'])->name('home');
 
+Route::post('/home',[HomeController::class,'store'])->name('home.store');
+
 //Route::get('/sse',[HomeController::class,'sse'])->name('sse');
 
 /* breeze routes */

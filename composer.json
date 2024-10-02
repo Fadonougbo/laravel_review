@@ -10,7 +10,9 @@
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
         "laravel/telescope": "^4.17",
-        "laravel/tinker": "^2.8"
+        "laravel/tinker": "^2.8",
+        "spatie/image": "^3.7",
+        "spatie/laravel-medialibrary": "^11.9"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.9",

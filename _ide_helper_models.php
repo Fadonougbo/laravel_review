@@ -30,6 +30,8 @@ namespace App\Models{
  * @property string $name
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, \Spatie\MediaLibrary\MediaCollections\Models\Media> $media
+ * @property-read int|null $media_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Sender> $senders
  * @property-read int|null $senders_count
  * @method static \Database\Factories\NetworkFactory factory($count = null, $state = [])
@@ -41,7 +43,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Network whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Network whereUpdatedAt($value)
  */
-	class Network extends \Eloquent {}
+	class Network extends \Eloquent implements \Spatie\MediaLibrary\HasMedia {}
 }
 
 namespace App\Models{
@@ -79,6 +81,8 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property int|null $network_id
+ * @property-read \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, \Spatie\MediaLibrary\MediaCollections\Models\Media> $media
+ * @property-read int|null $media_count
  * @property-read \App\Models\Network|null $network
  * @method static \Database\Factories\SenderFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Sender newModelQuery()
@@ -92,7 +96,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Sender whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Sender whereUpdatedAt($value)
  */
-	class Sender extends \Eloquent {}
+	class Sender extends \Eloquent implements \Spatie\MediaLibrary\HasMedia {}
 }
 
 namespace App\Models{
